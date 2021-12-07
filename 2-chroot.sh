@@ -2,7 +2,7 @@
 cat << EOF | chroot rootfs
 apt update
 apt upgrade -y
-echo "ecoo.top" > /etc/hostname
+echo "hi3798mv100" > /etc/hostname
 mknod /dev/console c 5 1
 mknod /dev/ttyAMA0 c 204 64
 mknod /dev/ttyAMA1 c 204 65
@@ -20,7 +20,7 @@ sleep 2
 sed -i -e 's/#PasswordAuthentication/PasswordAuthentication/g' /etc/ssh/sshd_config
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
 echo "127.0.0.1 localhost" > /etc/hosts
-echo "127.0.1.1 ecoo.top" >> /etc/hosts
+echo "127.0.1.1 hi3798mv100" >> /etc/hosts
 echo "Asia/Shanghai" > /etc/timezone
 cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
 echo "en_US.UTF-8 UTF-8" > etc/locale.gen

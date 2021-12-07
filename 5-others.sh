@@ -29,11 +29,10 @@ WantedBy=multi-user.target
 EOT
 cp ttyd.armhf rootfs/usr/bin/ttyd
 chmod +x rootfs/usr/bin/ttyd
-chmod +x rootfs/etc/systemd/system/ttyd.service
+chmod 644 rootfs/etc/systemd/system/ttyd.service
 cat <<EOT > rootfs/etc/network/interfaces.d/eth0
 auto eth0
 iface eth0 inet dhcp
 EOT
 echo "now ,dont forget chroot and adduser ubuntu & passwd root"
-echo "update-rc.d mystart.sh defaults 90"
-echo "systemctl enable ttyd"
+
