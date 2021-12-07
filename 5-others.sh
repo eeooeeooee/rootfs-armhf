@@ -2,7 +2,6 @@
 cp default rootfs/etc/nginx/sites-available/default
 cp wiki/index.html rootfs/var/www/html/index.html
 tar -zxvf h5ai.tar.gz -C rootfs/var/www/html/files/
-sed -i -e 's/php-tar/shell-zip/g' rootfs/var/www/html/files/_h5ai/private/conf/options.json
 cat <<EOT >> rootfs/etc/fstab
 /dev/mmcblk0p6 / ext4 defaults,noatime,errors=remount-ro 0 1
 EOT
