@@ -20,6 +20,7 @@
 <br/>ubuntu 1234
 <br/>系统默认北京时间
 <br/>系统默认国内清华升级源
+<br/>先插入U盘，后上电，系统才会默认自动挂载到/mnt/sda1，支持ntfs,ext4,fat32
 </p>
 <h3>2.个人网盘系统h5ai</h3>
 <p>浏览地址 <a href="/files">http://192.168.xx.xx/files/</a></p>
@@ -82,6 +83,21 @@
 <br/>然后添加计划任务(每15分钟检查一次外网ip变化才自动更新)
 <br/>crontab -e
 <br/>*/15 * * * * /home/ubuntu/client-mode/client.sh
+</p>
+
+<h3>8.1内置了花生壳域名no-ip.com域名的自动ddns解析程序</h3>
+<p>使用方法：
+<br/>花生壳修改 vi /home/ubuntu/client-mode/ddns_oray.sh
+<br/>或noip修改 vi /home/ubuntu/client-mode/ddns_noip.sh
+<br/>填写你的ddns帐号和密码,填写你需要解析的ddns域名
+<br/>user=
+<br/>passwd=
+<br/>hostname=
+<br/>然后添加计划任务(每20分钟检查一次外网ip变化才自动更新)
+<br/>crontab -e
+<br/>*/20 * * * * /home/ubuntu/client-mode/ddns_oray.sh
+<br/>或者
+<br/>*/20 * * * * /home/ubuntu/client-mode/ddns_noip.sh
 </p>
 
 <h3>9.安装和使用网络共享samba系统指南</h3>
