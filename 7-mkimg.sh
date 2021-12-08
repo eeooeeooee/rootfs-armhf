@@ -3,7 +3,7 @@
 if [ -f ubuntu-20-04.img ]; then
 	rm ubuntu-20-04.img
 fi
-dd if=/dev/zero of=ubuntu-20-04.img bs=1M count=1536
+dd if=/dev/zero of=ubuntu-20-04.img bs=1M count=1024
 mkfs.ext4 ubuntu-20-04.img
 if [ -d tmpfs ]; then
 	:

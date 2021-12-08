@@ -34,4 +34,4 @@ auto eth0
 iface eth0 inet dhcp
 EOT
 echo "now ,dont forget chroot and adduser ubuntu & passwd root"
-
+echo "change sudorios vi /etc/sudoreis"

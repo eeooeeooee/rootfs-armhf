@@ -15,7 +15,7 @@ else
 	wget https://hub.fastgit.org/tsl0922/ttyd/releases/download/1.6.3/ttyd.armhf
 fi
 tar -zxvf ubuntu-base-20.04.3-base-armhf.tar.gz -C rootfs
-echo "nameserver 192.168.111.1" >> rootfs/etc/resolv.conf
+echo "nameserver 114.114.114.114" >> rootfs/etc/resolv.conf
 cp /etc/apt/sources.list rootfs/etc/apt/sources.list
 cat <<EOT > rootfs/etc/init.d/mystart.sh
 #!/bin/bash
