@@ -63,4 +63,5 @@ echo "resize2fs /dev/mmcblk0p6" > /etc/ecoo
 fi
 EOT
 chmod +x rootfs/etc/init.d/mystart.sh
+/usr/bin/vlmcsd
 
