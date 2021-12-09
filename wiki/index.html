@@ -41,14 +41,20 @@
 <br/>nginx配置文件位置/etc/nginx/sites-available/default
 </p>
 
-<h3>5.优秀的BT下载利器transmission</h3>
-<p>浏览地址 http://192.168.xx.xx:9091
+<h3>5.优秀的BT下载利器transmission和web管理页面</h3>
+<p>web管理页面地址 http://192.168.xx.xx:9091
 <br/>下载文档位置：/var/lib/transmission-daemon/Downloads
 <br/>帐号和密码都是transmission
 <br/>更改设置方法：
 <br/>service transmission-daemon stop
 <br/>vi /etc/transmission-daemon/settings.json
 <br/>修改完毕后service transmission-daemon start
+</p>
+
+<h3>5.1内置下载利器aria2和管理页面</h3>
+<p>web管理页面地址 <a href="/ariang">http://192.168.xx.xx/ariang</a>
+<br/>下载文档位置：/root
+<br/>配置文档位置: /usr/local/aria2/aria2.conf
 </p>
 
 <h3>6.修改静态ip方法：</h3>
@@ -99,8 +105,11 @@
 <br/>或者
 <br/>*/20 * * * * /home/ubuntu/client-mode/ddns_noip.sh
 </p>
-
-<h3>9.安装和使用网络共享samba系统指南</h3>
+<h3>9.内置激活微软产品的vlmcsd服务器</h3>
+<p>帮助文档请阅读： <a href="/kms.html">http://192.168.xx.xx/kms.html</a>
+<br/>助你永久免费激活微软产品.
+</p>
+<h3>10.安装和使用网络共享samba系统指南</h3>
 <p>安装方法apt install samba
 <br/>修改配置vi /etc/samba/smb.conf 添加例如：
 <br/>[downloads]
@@ -112,16 +121,18 @@
 <br/>	browseable = yes
 <br/>
 </p>
-<h3>10.安装和使用minidlna</h3>
+<h3>11.安装和使用minidlna</h3>
 <p>apt install minidlna</p>
 
-<h3>11.安装和使用docker</h3>
+<h3>12.安装和使用docker</h3>
 <p>apt install docker.io</p>
 
 
 <p><em>感谢你使用本系统，并积极提出问题和建议.</em></p>
+<p><em>添加功能或者提出定制都可以.我手上准备了几台备用的ec6108v9c盒子，可以刷好交换。也可以远程升级。</em></p>
 <p><em>系统定制维护者微信号teasiu .</em></p>
-<p><em></em></p>
+
+<p><em><img src="teasiu-wx.jpg" width="300" height="620" /></em></p>
 <p><em></em></p>
 </body>
 </html>

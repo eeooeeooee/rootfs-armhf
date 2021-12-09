@@ -15,7 +15,7 @@ mknod /dev/tty    c 5   0
 apt-get install -y usbutils network-manager nginx apt-utils \
 locales wget curl vim iputils-ping bash-completion \
 ssh net-tools sudo php-fpm php-cgi php-sqlite3 transmission-daemon \
-cron ethtool zip ifupdown htop rsyslog dialog resolvconf 
+cron ethtool zip ifupdown htop rsyslog dialog resolvconf aria2
 sleep 2
 sed -i -e 's/#PasswordAuthentication/PasswordAuthentication/g' /etc/ssh/sshd_config
 echo "PermitRootLogin yes" >> /etc/ssh/sshd_config
