@@ -61,7 +61,9 @@ fi
 if [ ! -f "/etc/ecoo" ]; then
 echo "resize2fs /dev/mmcblk0p6" > /etc/ecoo
 fi
+/usr/bin/vlmcsd
+
 EOT
 chmod +x rootfs/etc/init.d/mystart.sh
-/usr/bin/vlmcsd
+
 
