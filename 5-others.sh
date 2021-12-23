@@ -3,6 +3,14 @@ cp default rootfs/etc/nginx/sites-available/default
 cp wiki/index.html rootfs/var/www/html/index.html
 cp wiki/kms.html rootfs/var/www/html/kms.html
 cp wiki/teasiu-wx.jpg rootfs/var/www/html/teasiu-wx.jpg
+
+mkdir rootfs/etc/frp
+cp frpc/frpc rootfs/usr/bin/
+chmod +x rootfs/usr/bin/frpc
+cp frpc/frpc.ini rootfs/etc/frp/
+cp frpc/frpc.service rootfs/etc/systemd/system/
+chmod 644 rootfs/etc/systemd/system/frpc.service
+
 tar -zxvf h5ai.tar.gz -C rootfs/var/www/html/files/
 cat <<EOT >> rootfs/etc/fstab
 /dev/mmcblk0p6 / ext4 defaults,noatime,errors=remount-ro 0 1
