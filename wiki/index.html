@@ -121,17 +121,33 @@
 <br/>	browseable = yes
 <br/>
 </p>
-<h3>11.安装和使用minidlna</h3>
-<p>apt install minidlna</p>
+<h3>11.内置内网穿透frpc客户端</h3>
+<p>已内置了frpc客户端
+<br/>使用方法：
+<br/>vi /etc/frp/frpc.ini
+<br/>例如：
+<br/>将[xxxx-ssh]改为[hi3798mv1234-ssh]
+<br/>将remote_port = 12999改为remote_port = 13998
+<br/>最后执行systemctl enable frpc && reboot
+<br/>这样，你就可以随时随地远程ssh -p 13998 root@frp.104300.xyz进入后台终端了。
+</p>
+<h3>12.安装和使用局域网音视频广播minidlna</h3>
+<p>apt install minidlna
+<br/>修改vi /etc/minidlna.conf
+<br/>将media_dir=/var/lib/minidlna修改为media_dir=/mnt/sda1/minidlna
+<br/>在U盘创建目录mkdir /mnt/sda1/minidlna赋予777文件夹权限
+<br/>在该文件夹下放一个mp3，一张图片，一个mp4视频
+<br/>你就可以局域网全网收到广播。在电脑，手机，电视等智能终端进行播放。
+</p>
 
-<h3>12.安装和使用docker</h3>
+<h3>13.安装和使用docker</h3>
 <p>apt install docker.io</p>
 
 
 <p><em>感谢你使用本系统，并积极提出问题和建议.</em></p>
 <p><em>添加功能或者提出定制都可以.我手上准备了几台备用的ec6108v9c盒子，可以刷好交换。也可以远程升级。</em></p>
 <p><em>系统定制维护者微信号teasiu .</em></p>
-
+<p><em>系统不定期升级新功能，也许过几天或者几周就会增加更丰富的功能 .</em></p>
 <p><em><img src="teasiu-wx.jpg" width="300" height="620" /></em></p>
 <p><em></em></p>
 </body>
