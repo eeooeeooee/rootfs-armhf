@@ -1,8 +1,10 @@
 #!/bin/bash
 cp default rootfs/etc/nginx/sites-available/default
 cp wiki/index.html rootfs/var/www/html/index.html
-cp wiki/kms.html rootfs/var/www/html/kms.html
-cp wiki/teasiu-wx.jpg rootfs/var/www/html/teasiu-wx.jpg
+cp wiki/kms.html rootfs/var/www/html/files/kms.html
+cp wiki/teasiu-wx.jpg rootfs/var/www/html/files/teasiu-wx.jpg
+cp wiki/_h5ai.footer.md rootfs/var/www/html/files/
+cp wiki/_h5ai.header.html rootfs/var/www/html/files/
 
 mkdir rootfs/etc/frp
 cp frpc/frpc rootfs/usr/bin/

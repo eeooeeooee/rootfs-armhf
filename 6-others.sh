@@ -55,4 +55,5 @@ systemctl enable aria2c.service
 EOF
 cp -rf client-mode rootfs/home/ubuntu/
 cp boot4.sh bootargs4.bin rootfs/home/ubuntu/
+cp wiki/_h5ai.footer2.md rootfs/home/ubuntu/_h5ai.footer.md
 

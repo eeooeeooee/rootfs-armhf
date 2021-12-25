@@ -7,7 +7,7 @@ chmod 777 -R blog
 rm 1.1-17.10.30-release.tar.gz
 mv index.nginx-debian.html index.html
 mkdir files
-#cd files
-#ln -s /mnt/sda1/files/hi3798mv100 hi3798mv100
+cd files
+ln -s /home/ubuntu home
 #ln -s /mnt/sda1/share share
 
