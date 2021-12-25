@@ -12,12 +12,12 @@ fi
 if [ -f ttyd.armhf ]; then
 	:
 else
-	wget https://hub.fastgit.org/tsl0922/ttyd/releases/download/1.6.3/ttyd.armhf
+	wget https://github.com/tsl0922/ttyd/releases/download/1.6.3/ttyd.armhf
 fi
 if [ -f AriaNg-1.2.3.zip ]; then
 	:
 else
-	wget https://hub.fastgit.org/mayswind/AriaNg/releases/download/1.2.3/AriaNg-1.2.3.zip
+	wget https://github.com/mayswind/AriaNg/releases/download/1.2.3/AriaNg-1.2.3.zip
 fi
 tar -zxvf ubuntu-base-20.04.3-base-armhf.tar.gz -C rootfs
 echo "nameserver 114.114.114.114" >> rootfs/etc/resolv.conf
