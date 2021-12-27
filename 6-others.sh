@@ -54,6 +54,8 @@ systemctl enable ttyd
 systemctl enable aria2c.service
 EOF
 cp -rf client-mode rootfs/home/ubuntu/
-cp boot4.sh bootargs4.bin rootfs/home/ubuntu/
+cp bootargs4.bin rootfs/usr/bin/
+cp boot4.sh rootfs/usr/bin/recoverbackup
+chmod +x rootfs/usr/bin/recoverbackup
 cp wiki/_h5ai.footer2.md rootfs/home/ubuntu/_h5ai.footer.md
 
