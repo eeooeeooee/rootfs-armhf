@@ -5,7 +5,7 @@
 <title>欢迎使用ubuntu微型服务器系统</title>
 <style>
     body {
-        width: 35em;
+        width: 40em;
         margin: 0 auto;
         font-family: Tahoma, Verdana, Arial, sans-serif;
     }
@@ -13,7 +13,10 @@
 </head>
 <body>
 <h1>欢迎使用ubuntu微型NAS服务器系统</h1>
-<p>如果你看到这个页面，说明系统的nginx网站成功运行.</p>
+<p>如果你看到这个页面，说明系统的nginx网站成功运行。
+<br/>本系统采用SDK源码版本HiSTBLinuxV100R005C00SPC060编译(可联系索取)，
+<br/>内核版本4.4.35，文件系统为Ubuntu-LTS-20.04.3。
+<br/>适配海思芯片hi3798m系列盒子。</p>
 <h1>NAS系统使用指南</h1>
 <h3>1.初始账号和密码</h3>
 <p>root 1234
@@ -42,7 +45,10 @@
 </p>
 
 <h3>5.优秀的BT下载利器transmission和web管理页面</h3>
-<p>web管理页面地址 http://192.168.xx.xx:9091
+<p>web管理页面地址 <a id="trport">http://192.168.xx.xx:9091</a>
+<script>
+document.getElementById('trport').href=''+window.location.origin+':9091';
+</script>
 <br/>下载文档位置：/var/lib/transmission-daemon/Downloads
 <br/>帐号和密码都是transmission
 <br/>更改设置方法：
@@ -70,10 +76,13 @@
 <br/>dns-nameservers 192.168.1.1
 </p>
 <h3>7.内置了网页终端登陆管理后台ttyd</h3>
-<p>登陆地址 http://192.168.xx.xx:7681
+<p>登陆地址 <a id="ttydport">http://192.168.xx.xx:7681</a>
+<script>
+document.getElementById('ttydport').href=''+window.location.origin+':7681';
+</script>
 <br/>让你更快捷的管理后台,
-<br/>初始帐号root
-<br/>密码1234
+<br/>初始帐号root或者ubuntu
+<br/>初始密码都是1234
 <br/>密码修改输入：passwd root根据提示修改
 </p>
 
@@ -110,7 +119,10 @@
 <br/>助你永久免费激活微软产品.
 </p>
 <h3>10.安装和使用网络共享samba系统指南</h3>
-<p>安装方法apt install samba
+<p>安装软件 apt install samba
+<br/>创建共享目录例如mkdir -p /mnt/sda1/downloads
+<br/>赋予目录权限 chmod -R 777 /mnt/sda1/downloads
+<br/>赋予匿名权限 chown nobody:nogroup /mnt/sda1/downloads
 <br/>修改配置vi /etc/samba/smb.conf 添加例如：
 <br/>[downloads]
 <br/>	path = /mnt/sda1/downloads
@@ -119,7 +131,8 @@
 <br/>	create mask = 0777
 <br/>	directory mask = 0777
 <br/>	browseable = yes
-<br/>
+<br/>最后重启服务systemctl restart smbd
+<br/>你就可以在网上邻居搜索和打开共享目录了。
 </p>
 <h3>11.内置内网穿透frpc客户端</h3>
 <p>已内置了frpc客户端
