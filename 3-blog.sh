@@ -1,6 +1,6 @@
 #!/bin/bash
+cp 1.1-17.10.30-release.tar.gz rootfs/var/www/html/
 cd rootfs/var/www/html/
-wget http://typecho.org/downloads/1.1-17.10.30-release.tar.gz
 tar -zxvf 1.1-17.10.30-release.tar.gz
 mv build blog
 chmod 777 -R blog

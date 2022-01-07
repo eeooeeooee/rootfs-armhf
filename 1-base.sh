@@ -9,6 +9,11 @@ if [ -d rootfs ]; then
 else
 	mkdir rootfs
 fi
+if [ -f 1.1-17.10.30-release.tar.gz ]; then
+	:
+else
+	wget http://typecho.org/downloads/1.1-17.10.30-release.tar.gz
+fi
 if [ -f ttyd.armhf ]; then
 	:
 else

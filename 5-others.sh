@@ -48,5 +48,5 @@ auto eth0
 iface eth0 inet dhcp
 EOT
 echo "now ,dont forget chroot and adduser ubuntu & passwd root"
-echo "change sudores vi /etc/sudores"
+echo "change sudoers vi /etc/sudoers"
 echo "别忘记在这一步要做上述两件事！"
