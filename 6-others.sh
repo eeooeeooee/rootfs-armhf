@@ -4,6 +4,7 @@ if [ -f AriaNg-1.2.3.zip ]; then
 else
 	wget https://github.com/mayswind/AriaNg/releases/download/1.2.3/AriaNg-1.2.3.zip
 fi
+mkdir -p rootfs/home/ubuntu/downloads
 mkdir -p rootfs/var/www/html/ariang
 unzip AriaNg-1.2.3.zip -d rootfs/var/www/html/ariang
 mkdir -p rootfs/usr/local/aria2
@@ -54,7 +55,6 @@ systemctl enable ttyd
 systemctl enable aria2c.service
 EOF
 cp -rf client-mode rootfs/home/ubuntu/
-mkdir -p rootfs/home/ubuntu/downloads
 cp bootargs4.bin rootfs/usr/bin/
 cp boot4.sh rootfs/usr/bin/recoverbackup
 chmod +x rootfs/usr/bin/recoverbackup
