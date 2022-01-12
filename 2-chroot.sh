@@ -1,5 +1,5 @@
 #!/bin/bash
-cat << EOF | chroot rootfs
+cat << EOF | LC_ALL=C LANGUAGE=C LANG=C chroot rootfs
 apt update
 apt upgrade -y
 echo "hi3798mv100" > /etc/hostname
@@ -31,6 +31,10 @@ echo "zh_CN.GBK GBK" >> /etc/locale.gen
 locale-gen
 echo "LANG=en_US.UTF-8" > /etc/locale.conf
 update-rc.d mystart.sh defaults 90
+useradd -s '/bin/bash' -m -G adm,sudo ubuntu
+gpasswd -a ubuntu sudo
+echo -e "1234\n1234\n" | passwd ubuntu
+echo -e "1234\n1234\n" | passwd root
 apt autoremove
 apt-get autoclean
 apt-get clean

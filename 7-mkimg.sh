@@ -12,9 +12,11 @@ else
 fi
 mount ubuntu-20-04.img tmpfs
 cp -rfp rootfs/* tmpfs/
+sync
 sleep 2
 umount tmpfs/
-sleep 3
+sleep 2
+rm -r tmpfs
 e2fsck -p -f ubuntu-20-04.img
 resize2fs -M ubuntu-20-04.img
 
