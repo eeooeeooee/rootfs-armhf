@@ -2,7 +2,7 @@
 <html>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <head>
-<title>欢迎使用ubuntu微型服务器系统</title>
+<title>欢迎使用 Ubuntu 微型服务器系统</title>
 <style>
     body {
         width: 40em;
@@ -12,58 +12,54 @@
 </style>
 </head>
 <body>
-<h1>欢迎使用ubuntu微型NAS服务器系统</h1>
-<p>如果你看到这个页面，说明系统的nginx网站成功运行。
+<h1>欢迎使用 Ubuntu 微型NAS服务器系统</h1>
+<p>如果你看到这个页面，说明系统的 nginx 服务已成功运行。
 <br/>本系统采用SDK源码版本HiSTBLinuxV100R005C00SPC060编译(可联系索取)，
 <br/>内核版本4.4.35，文件系统为Ubuntu-LTS-20.04.3。
 <br/>适配海思芯片hi3798m系列盒子。</p>
 <h1>NAS系统使用指南</h1>
-<h3>1.初始账号和密码</h3>
+<h3>1. 初始账号和密码</h3>
 <p>root 1234
 <br/>ubuntu 1234
 <br/>系统默认北京时间
-<br/>系统默认国内清华升级源
-<br/>先插入U盘，后上电，系统才会默认自动挂载到/mnt/sda1，支持ntfs,ext4,fat32
+<br/>系统默认国内 apt 源
+<br/>自动挂载U盘、TF Card 等外接设备, 支持 ext3 ntfs ext4 fat32 exfat 等格式
+<br/>执行 smartctl -H /dev/xxx 即可获取 xxx 设备健康的状态
 </p>
-<h3>2.个人网盘系统h5ai</h3>
-<p>浏览地址 <a href="/files">http://192.168.xx.xx/files/</a></p>
-<p>存档位置：/var/www/html/files/
-<br/>更改到usb外接存储设备办法
-<br/>例如：
-<br/>mkdir -p /mnt/sda1/downloads
-<br/>cd /var/www/html/files/
-<br/>ln -s /mnt/sda1/downloads downloads
+<h3>2. 个人网盘系统 h5ai</h3>
+<p>浏览地址 <a href="/files">http://192.168.x.x/files/</a></p>
+<p>存档位置: /var/www/html/files/
+<br/>如果要更改存档位置到外接设备 /mnt/sda1
+<br/>则执行: ln -s /mnt/sda1 /var/www/html/files/downloads
 </p>
-<h3>3.个人博客系统typecho</h3>
-<p>浏览地址 <a href="/blog">http://192.168.xx.xx/blog/</a></p>
-<p>程序位置：/var/www/html/blog/
-<br/>首次使用直接安装即可
+<h3>3. 个人博客系统 typecho</h3>
+<p>浏览地址 <a href="/blog">http://192.168.x.x/blog/</a></p>
+<p>程序位置: /var/www/html/blog/
+<br/>首次使用按照步骤安装即可
 </p>
-<h3>4.默认配置nginx和php7.4-fpm,php7.4-cgi</h3>
-<p>配置参数请浏览 <a href="/files/info.php">http://192.168.xx.xx/files/info.php</a>
-<br/>nginx配置文件位置/etc/nginx/sites-available/default
+<h3>4. 默认配置 nginx 和 php7.4-fpm,php7.4-cgi</h3>
+<p>配置参数请浏览 <a href="/files/info.php">http://192.168.x.x/files/info.php</a>
+<br/>nginx 配置文件位置 /etc/nginx/sites-available/default
 </p>
 
-<h3>5.优秀的BT下载利器transmission和web管理页面</h3>
-<p>web管理页面地址 <a id="trport">http://192.168.xx.xx:9091</a>
+<h3>5.1 BT下载利器 Transmission 和 WEB管理页面</h3>
+<p>WEB管理页面地址 <a id="trport">http://192.168.x.x:9091</a>
 <script>
 document.getElementById('trport').href=''+window.location.origin+':9091';
 </script>
-<br/>下载文档位置：/home/ubuntu/downloads
-<br/>帐号和密码都是admin
-<br/>更改设置方法：
-<br/>service transmission-daemon stop
-<br/>vi /etc/transmission-daemon/settings.json
-<br/>修改完毕后service transmission-daemon start
+<br/>初始帐号和密码 admin admin
+<br/>下载文件位置: /home/ubuntu/downloads
+<br/>更改设置方法: vi /etc/transmission-daemon/settings.json
+<br/>修改完毕后执行: service transmission-daemon restart 来重启 Transmission 服务
 </p>
 
-<h3>5.1内置下载利器aria2和管理页面</h3>
-<p>web管理页面地址 <a href="/ariang">http://192.168.xx.xx/ariang</a>
-<br/>下载文档位置：/home/ubuntu/downloads
-<br/>配置文档位置: /usr/local/aria2/aria2.conf
+<h3>5.2 下载利器 Aria2 和 WEB管理页面 Aria-NG</h3>
+<p>WEB管理页面地址 <a href="/ariang">http://192.168.x.x/ariang</a>
+<br/>Aria2 配置文件位置: /usr/local/aria2/aria2.conf
+<br/>下载文件位置: /home/ubuntu/downloads
 </p>
 
-<h3>6.修改静态ip方法：</h3>
+<h3>6. 如何修改静态IP </h3>
 <p>vi /etc/network/interfaces.d/eth0
 <br/>内容为
 <br/>auto eth0
@@ -75,33 +71,33 @@ document.getElementById('trport').href=''+window.location.origin+':9091';
 <br/>gateway 192.168.1.1
 <br/>dns-nameservers 192.168.1.1
 </p>
-<h3>7.内置了网页终端登陆管理后台ttyd</h3>
-<p>登陆地址 <a id="ttydport">http://192.168.xx.xx:7681</a>
+<h3>7. 网页终端 ttyd</h3>
+<p>登陆地址 <a id="ttydport">http://192.168.x.x:7681</a>
 <script>
 document.getElementById('ttydport').href=''+window.location.origin+':7681';
 </script>
 <br/>让你更快捷的管理后台,
-<br/>初始帐号root或者ubuntu
+<br/>初始帐号 root 或 ubuntu
 <br/>初始密码都是1234
-<br/>密码修改输入：passwd root根据提示修改
+<br/>密码修改执行: passwd root ,并根据提示修改
 </p>
 
-<h3>8.内置了阿里域名的自动ddns解析程序</h3>
-<p>使用方法：首先安装apt install nodejs
-<br/>修改 vi /home/ubuntu/client-mode/config.json
-<br/>填写你的阿里keyid和keysecret,填写你需要解析的域名
+<h3>8. 内置了阿里 DDNS 解析程序</h3>
+<p>使用方法: 首先安装 nodejs: apt install nodejs
+<br/>修改配置文件: vi /home/ubuntu/client-mode/config.json
+<br/>填写你的阿里 keyid 和 keysecret,填写你需要解析的域名
 <br/>{
 <br/>  "AccessKeyId": "xxxx ",
 <br/>  "AccessKeySecret": "xxxx ",
 <br/>  "hostnames": ["@.ecoo.top", "www.ecoo.top"]
 <br/>}
-<br/>然后添加计划任务(每15分钟检查一次外网ip变化才自动更新)
+<br/>保存并退出, 然后添加计划任务(每15分钟检查一次外网ip变化才自动更新)
 <br/>crontab -e
-<br/>*/15 * * * * /home/ubuntu/client-mode/client.sh
+<br/>输入 */15 * * * * /home/ubuntu/client-mode/client.sh
 </p>
 
-<h3>8.1内置了花生壳域名no-ip.com域名的自动ddns解析程序</h3>
-<p>使用方法：
+<h3>8.1 内置了花生壳域名no-ip.com域名的自动ddns解析程序</h3>
+<p>使用方法: 
 <br/>花生壳修改 vi /home/ubuntu/client-mode/ddns_oray.sh
 <br/>或noip修改 vi /home/ubuntu/client-mode/ddns_noip.sh
 <br/>填写你的ddns帐号和密码,填写你需要解析的ddns域名
@@ -114,16 +110,16 @@ document.getElementById('ttydport').href=''+window.location.origin+':7681';
 <br/>或者
 <br/>*/20 * * * * /home/ubuntu/client-mode/ddns_noip.sh
 </p>
-<h3>9.内置激活微软产品的vlmcsd服务器</h3>
-<p>帮助文档请阅读： <a href="/files/kms.html">http://192.168.xx.xx/files/kms.html</a>
+<h3>9. 内置激活微软产品的vlmcsd服务器</h3>
+<p>帮助文档请阅读:  <a href="/files/kms.html">http://192.168.x.x/files/kms.html</a>
 <br/>助你永久免费激活微软产品.
 </p>
-<h3>10.安装和使用网络共享samba系统指南</h3>
+<h3>10. 安装和使用网络共享samba系统指南</h3>
 <p>安装软件 apt install samba
 <br/>创建共享目录例如mkdir -p /mnt/sda1/downloads
 <br/>赋予目录权限 chmod -R 777 /mnt/sda1/downloads
 <br/>赋予匿名权限 chown nobody:nogroup /mnt/sda1/downloads
-<br/>修改配置vi /etc/samba/smb.conf 添加例如：
+<br/>修改配置vi /etc/samba/smb.conf 添加例如: 
 <br/>[downloads]
 <br/>	path = /mnt/sda1/downloads
 <br/>	read only = no
@@ -134,17 +130,17 @@ document.getElementById('ttydport').href=''+window.location.origin+':7681';
 <br/>最后重启服务systemctl restart smbd
 <br/>你就可以在网上邻居搜索和打开共享目录了。
 </p>
-<h3>11.内置内网穿透frpc客户端</h3>
+<h3>11. 内置内网穿透 Frp 客户端</h3>
 <p>已内置了frpc客户端
-<br/>使用方法：
+<br/>使用方法: 
 <br/>vi /etc/frp/frpc.ini
-<br/>例如：
+<br/>例如: 
 <br/>将[xxxx-ssh]改为[hi3798mv1234-ssh]
 <br/>将remote_port = 12999改为remote_port = 13998
 <br/>最后执行systemctl enable frpc && reboot
 <br/>这样，你就可以随时随地远程ssh -p 13998 root@frp.104300.xyz进入后台终端了。
 </p>
-<h3>12.安装和使用局域网音视频广播minidlna</h3>
+<h3>12. 安装和使用局域网音视频广播minidlna</h3>
 <p>apt install minidlna
 <br/>修改vi /etc/minidlna.conf
 <br/>将media_dir=/var/lib/minidlna修改为media_dir=/mnt/sda1/minidlna
@@ -153,17 +149,18 @@ document.getElementById('ttydport').href=''+window.location.origin+':7681';
 <br/>你就可以局域网全网收到广播。在电脑，手机，电视等智能终端进行播放。
 </p>
 
-<h3>13.内置vsftpd服务器</h3>
+<h3>13. 内置vsftpd服务器</h3>
 <p>已安装ftp服务程序，可以使用ftp上传下载软件进行系统文件管理。
 <br/>初始用户名ubuntu密码与系统一致。
 </p>
 
-<h3>14.安装和使用docker</h3>
+<h3>14. 安装和使用docker</h3>
 <p>apt install docker.io</p>
 
-<h3>15.恢复备份设置，即刷机时的backup还原</h3>
-<p>一句命令搞定：# recoverbackup 然后静等4分钟左右，即可继续登陆。</p>
+<h3>15. 恢复备份设置，即刷机时的backup还原</h3>
+<p>一句命令搞定: # recoverbackup 然后静等4分钟左右，即可继续登陆。</p>
 
+<h3>16. 小结</h3>
 <p><em>感谢你使用本系统，并积极提出问题和建议.</em></p>
 <p><em>添加功能或者提出定制都可以.我手上准备了几台备用的ec6108v9c盒子，可以刷好交换。也可以远程升级。</em></p>
 <p><em>系统定制维护者微信号teasiu .</em></p>

@@ -1,0 +1,35 @@
+#!/bin/sh
+
+sleep 2
+LOGGER="logger -t [automount]"
+$LOGGER "Script started"
+
+# Umount
+for disk in $(mount | awk '{print $1}' | grep /dev | grep -v mmcblk0);do
+	part=$(basename $disk)
+	[ ! "$part" ] && continue
+	skip_umount=$(lsblk --list | awk '{print $1}' | grep -q $part; echo $?)
+	if [ "$skip_mount" = 0 ]
+	then
+		continue
+	fi
+	$LOGGER "[U] Umount disk [$disk]"
+	umount -l /mnt/$part
+	[ ! "$(ls -A /mnt/$part)" ] && rm -rf /mnt/$part
+done
+
+# Mount
+for part in $(lsblk --list | grep -v mmcblk0 | grep part | awk '{print $1}');do
+	skip_mount=$(mount | awk '{print $1}' | grep -q $part ; echo $?)
+	if [ "$skip_mount" = 0 ]
+	then
+		$LOGGER "[A] [/dev/$part]: Already mounted"
+		continue
+	fi
+	mkdir -p /mnt/$part
+	chmod 777 -R /mnt/$part
+	mount /dev/$part /mnt/$part -o rw && $LOGGER "[M] Mounted disk [/dev/$part] at [/mnt/$part]" || {
+		$LOGGER "[M] Failed to mount disk [/dev/$part] at [/mnt/$part]"
+	}
+done
+
